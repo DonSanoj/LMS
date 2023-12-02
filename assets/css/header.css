@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900@display=swap');
+
+:root {
+    /* --bg-color: #0B0C10; */
+    /* --blue: #66FCF1; */
+    --bg-color: #000;
+    --header-background-color: rgba(251, 251, 253, .8);
+    --hover-color: rgba(0, 0, 0, 1);
+    --btn-color: rgb(41, 99, 215);
+    --font-color: #fff;
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, .4);
+    --form-box-shadow: 0 10px 10px 10px rgb(40, 40, 40, 40);
+    --h2-font: 3rem;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    background-size: auto;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: var(--header-background-color);
+    backdrop-filter: saturate(180%) blur(20px);
+    padding: 1.8rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo {
+    letter-spacing: .5rem;
+    font-display: swap;
+    color: rgba(0, 0, 0, .8);
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+header .logo i {
+    color: var(--hover-color);
+}
+
+header .navbar a {
+    font-size: 15px;
+    font-weight: 300;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, .8);
+}
+
+header .navbar a.active,
+header .navbar a:hover {
+    color: var(--hover-color);
+}
+
+header .icons i,
+header .icons a {
+    display: flexbox;
+    cursor: pointer;
+    margin: .5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
+    text-align: center;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .6);
+    border-radius: 50%;
+    /* background: var(--header-background-color); */
+    margin-right: 1.5rem;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+    color: var(--hover-color);
+}
+
+header .icons #menu-bars {
+    display: none;
+}
+
+
+/* Search form */
+#search-form {
+    position: fixed;
+    top: -110%;
+    left: 0;
+    height: 85%;
+    width: 100%;
+    z-index: 1004;
+    background: rgb(40, 40, 40);
+    /* background: transparent;
+    backdrop-filter: blur(20px); */
+    box-shadow: var(--form-box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+#search-form.active {
+    top: 0;
+}
+
+#search-form #search-box {
+    width: 50rem;
+    border-bottom: .1rem solid var(--header-background-color);
+    padding: 1rem 0;
+    color: #fff;
+    font-size: 3rem;
+    text-transform: none;
+    background: none;
+}
+
+#search-form #search-box::placeholder {
+    color: #eee;
+}
+
+#search-form #search-box::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+#search-form label{
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#search-form button {
+    background: none;
+    cursor: pointer;
+}
+
+#search-form label:hover {
+    color: #fff;
+}
+
+#search-form #search-form-close {
+    position: absolute;
+    color: var(--header-background-color);
+    cursor: pointer;
+    top: 2.5rem;
+    right: 3rem;
+    font-size: 20px;
+}
+
+/* Media queries */
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 1rem 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    header .icons #menu-bars {
+        display: inline-block;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        border-bottom: .1rem solid rgba(0, 0, 0, .2);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: #eee;
+    }
+
+    #search-form #search-box {
+        width: 90%;
+        margin: 0 1rem;
+    }
+
+    .footer_wrapper {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 50%;
+    }
+
+    .pop-services .box-container .box img {
+        height: auto;
+        border-radius: 4rem;
+        width: 100%;
+    }
+
+}
