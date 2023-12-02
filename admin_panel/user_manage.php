@@ -198,7 +198,7 @@ function alert($message)
                             </div>
                             <div class="field">
                                 <label for="from_name">Sender Name:</label>
-                                <label for=""><span>*</span>Use WEBXEL name for this field</label>
+                                <label for=""><span>*</span>Use E Learning name for this field</label>
                                 <input type="text" name="from_name" id="from_name" required>
                             </div>
                             <div class="field">
@@ -207,7 +207,7 @@ function alert($message)
                             </div>
                             <div class="field">
                                 <label for="reply_to">Reply To:</label>
-                                <label for=""><span>*</span>Use admin@webxel.xyz email address for this field</label>
+                                <label for=""><span>*</span>Use admin@elearning.xyz email address for this field</label>
                                 <input type="text" name="reply_to" id="reply_to" required>
                             </div>
 

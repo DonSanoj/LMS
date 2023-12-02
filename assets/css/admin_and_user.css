@@ -713,17 +713,17 @@ footer {
 
 /* Admin and User Profile page */
 
-/* Admin and User Notification page */
+/* Admin and User Classes page */
 
 .orders h1,
-.admin-notification .orders h1 {
+.admin-classes .class h1 {
 	padding-top: 40px;
 	font-size: 28px;
 	color: #2c2b2b;
 }
 
 .orders .order-card .order,
-.admin-notification .order-card .order {
+.admin-classes .class-card .order {
 	margin-top: 50px;
 	border-collapse: collapse;
 	width: 100%;
@@ -731,7 +731,7 @@ footer {
 }
 
 .orders .order-card .order tr th,
-.admin-notification .order-card .order tr th {
+.admin-classes .class-card .order tr th {
 	border: 1px solid var(--dark);
 	padding: 8px;
 	padding-top: 12px;
@@ -741,47 +741,47 @@ footer {
 }
 
 .orders .order-card .order tr td,
-.admin-notification .order-card .order tr td {
+.admin-classes .class-card .order tr td {
 	border: 1px solid var(--dark-grey);
 	padding: 8px;
 	text-align: center;
 }
 
-.admin-notification .orders .order tr td button {
+.admin-classes .classes .class tr td button {
 	padding: 20px 20px;
 	border-radius: 15px;
 	cursor: pointer;
 	display: flex;
 }
 
-.admin-notification .orders .order tr td .btn-chat {
+.admin-classes .classes .class tr td .btn-chat {
 	background: var(--font-color);
 }
 
-.admin-notification .orders .order tr td .btn-chat a {
+.admin-classes .classes .class tr td .btn-chat a {
 	color: var(--bg-color);
 }
 
-.admin-notification .orders .order tr td .btn-chat:hover {
+.admin-classes .classes .class tr td .btn-chat:hover {
 	background: var(--btn-color);
 }
 
-.admin-notification .orders .order tr td .btn-chat a:hover {
+.admin-classes .classes .class tr td .btn-chat a:hover {
 	color: var(--font-color);
 }
 
-.admin-notification .orders .order tr td .btn-delete {
+.admin-classes .classes .class tr td .btn-delete {
 	background: crimson;
 	color: var(--font-color);
 }
 
-.admin-notification .orders .order tr td .btn-accept {
+.admin-classes .classes .class tr td .btn-accept {
 	background: green;
 	color: var(--font-color);
 }
 
 
-/* Admin Notification page */
+/* Admin Classes page */
 
 /* User Manage */
 
@@ -1056,7 +1056,7 @@ footer {
 	}
 
 
-	#content nav form.show~.notification,
+	#content nav form.show~.classes,
 	#content nav form.show~.profile {
 		display: none;
 	}

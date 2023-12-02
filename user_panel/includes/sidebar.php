@@ -16,9 +16,15 @@
             </a>
         </li>
         <li>
-            <a href="#notification">
-                <i class='bx bxs-bell'></i>
-                <span class="text">Notification</span>
+            <a href="#classes">
+                <i class='bx bxs-book-alt'></i>
+                <span class="text">Classes</span>
+            </a>
+        </li>
+        <li>
+            <a href="#upload">
+                <i class='bx bx-upload'></i>
+                <span class="text">Uploads</span>
             </a>
         </li>
         <li>

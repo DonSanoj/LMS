@@ -15,12 +15,18 @@
                 <span class="text">User Management</span>
             </a>
         </li>
-        <!-- <li>
+        <li>
+            <a href="/admin_panel/classes.php">
+                <i class='bx bxs-book-alt'></i>
+                <span class="text">Classes</span>
+            </a>
+        </li>
+        <li>
             <a href="/admin_panel/notification.php">
                 <i class='bx bxs-bell'></i>
                 <span class="text">Notification</span>
             </a>
-        </li> -->
+        </li>
     </ul>
     <ul class="side-menu">
         <li>

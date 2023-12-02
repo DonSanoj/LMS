@@ -5,9 +5,9 @@
 
     <nav class="navbar">
         <a href="/index.php">Home</a>
-        <a href="#">Time Table</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="/time_table.php">Time Table</a>
+        <a href="/contact.php">Contact Us</a>
+        <a href="/about.php">About Us</a>
     </nav>
 
     <div class="icons">

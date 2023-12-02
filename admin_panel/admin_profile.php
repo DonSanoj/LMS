@@ -12,13 +12,12 @@ if (!isset($_SESSION['admin_name']) && ($_SESSION['admin_email'])) {
 if (isset($_POST['submit-info'])) {
 
     $admin_name = mysqli_real_escape_string($conn, $_POST['fullName']);
-    $admin_country = mysqli_real_escape_string($conn, $_POST['country']);
     $admin_address = mysqli_real_escape_string($conn, $_POST['address']);
     $admin_contact_number = $_POST['contact_number'];
     $admin_email = $_SESSION['admin_email'];
 
-    $admin_profile_update = $conn->prepare("UPDATE login_and_register SET name=?, country=?, address=?, contact_number=? WHERE email=?");
-    $admin_profile_update->bind_param("sssss", $admin_name, $admin_country, $admin_address, $admin_contact_number, $admin_email);
+    $admin_profile_update = $conn->prepare("UPDATE login_and_register SET name=?, address=?, contact_number=? WHERE email=?");
+    $admin_profile_update->bind_param("ssss", $admin_name, $admin_address, $admin_contact_number, $admin_email);
     $admin_profile_update->execute();
 
     if ($admin_profile_update) {
@@ -197,11 +196,6 @@ function alert($message)
                             </div>
 
                             <div class="row">
-                                <div class="info-title">Country:</div>
-                                <div class="info-content"><?php echo $row['country']; ?></div>
-                            </div>
-
-                            <div class="row">
                                 <div class="info-title">Address:</div>
                                 <div class="info-content"><?php echo $row['address']; ?></div>
                             </div>
@@ -228,20 +222,6 @@ function alert($message)
                                 <label for="fullName" class="info-social-links">Full Name</label>
                                 <div class="info-description">
                                     <input name="fullName" type="text" class="form-control" id="fullName" value="">
-                                </div>
-                            </div>
-
-                            <div class="info-edit">
-                                <label for="about" class="info-social-links">About</label>
-                                <div class="info-description">
-                                    <textarea name="about" class="form-control" id="about" style="height: 100px"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="info-edit">
-                                <label for="Country" class="info-social-links">Country</label>
-                                <div class="info-description">
-                                    <input name="country" type="text" class="form-control" id="Country">
                                 </div>
                             </div>
 

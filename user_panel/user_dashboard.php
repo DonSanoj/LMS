@@ -12,13 +12,12 @@ if (!isset($_SESSION['user_name']) && ($_SESSION['user_email'])) {
 if (isset($_POST['submit-info'])) {
 
     $user_name = mysqli_real_escape_string($conn, $_POST['fullName']);
-    $user_country = mysqli_real_escape_string($conn, $_POST['country']);
     $user_address = mysqli_real_escape_string($conn, $_POST['address']);
     $user_contact_number = $_POST['contact_number'];
     $user_email = $_SESSION['user_email'];
 
-    $user_profile_update = $conn->prepare("UPDATE login_and_register SET name = ?, country = ?, address = ?, contact_number = ? WHERE email = ?");
-    $user_profile_update->bind_param("ssssss", $user_name, $user_country, $user_address, $user_contact_number, $user_email);
+    $user_profile_update = $conn->prepare("UPDATE login_and_register SET name = ?, address = ?, contact_number = ? WHERE email = ?");
+    $user_profile_update->bind_param("ssss", $user_name, $user_address, $user_contact_number, $user_email);
     $user_profile_update->execute();
 
     if ($user_profile_update) {
@@ -146,7 +145,7 @@ function alert($message)
 
                     <img src="../assets/images/profile.png" alt="Profile" class="rounded-circle">
                     <h2><?php echo $_SESSION['user_name'] ?></h2>
-                    <h3>W&#x039E;&#x042;X&#x039E;L User</h3>
+                    <h3>Student</h3>
 
                 </div>
             </main>
@@ -193,11 +192,6 @@ function alert($message)
                             </div>
 
                             <div class="row">
-                                <div class="info-title">Country:</div>
-                                <div class="info-content"><?php echo $row['country']; ?></div>
-                            </div>
-
-                            <div class="row">
                                 <div class="info-title">Address:</div>
                                 <div class="info-content"><?php echo $row['address']; ?></div>
                             </div>
@@ -223,20 +217,6 @@ function alert($message)
                                 <label for="fullName" class="info-social-links">Full Name</label>
                                 <div class="info-description">
                                     <input name="fullName" type="text" class="form-control" id="fullName" value="">
-                                </div>
-                            </div>
-
-                            <div class="info-edit">
-                                <label for="about" class="info-social-links">About</label>
-                                <div class="info-description">
-                                    <textarea name="about" class="form-control" id="about" style="height: 100px"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="info-edit">
-                                <label for="Country" class="info-social-links">Country</label>
-                                <div class="info-description">
-                                    <input name="country" type="text" class="form-control" id="Country">
                                 </div>
                             </div>
 
@@ -294,17 +274,17 @@ function alert($message)
                 </div>
             </div>
 
-            <main class="notification" id="notification">
+            <main class="classes" id="classes">
                 <div class="head-title">
                     <div class="left">
-                        <h1>Notification</h1>
+                        <h1>Classes</h1>
                     </div>
                 </div>
 
-                <section class="orders" id="orders">
-                    <h1>Orders</h1>
+                <section class="class" id="class">
+                    <h1><?php echo $_SESSION['user_name'] ?> Classes</h1>
 
-                    <div class="order-card">
+                    <div class="class-card">
 
                         <?php
                         // function getAllOrders($table, $user_email)

@@ -1,6 +1,6 @@
 <?php
 
-@include '../config.php';
+@include '../config/config.php';
 
 session_start();
 
@@ -51,7 +51,7 @@ if (!isset($_SESSION['admin_name'])) {
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
                         <h3>11</h3>
-                        <p>Grades</p>
+                        <p>Classes</p>
                     </span>
                 </li>
                 <li>
@@ -66,46 +66,46 @@ if (!isset($_SESSION['admin_name'])) {
 
             <div class="table-data">
                 <div class="order">
-                    <h2>Orders</h2><br>
+                    <h2>Active Classes</h2><br>
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>User</th>
-                                <th>Service Type</th>
-                                <th>Accepted Admin Email</th>
+                                <th>Grade</th>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
 
-                            // function getAll($table)
-                            // {
-                            //     global $conn;
-                            //     $query = "SELECT * FROM $table";
-                            //     return mysqli_query($conn, $query);
-                            // }
+                            function getAllClasses()
+                            {
+                                global $conn;
+                                $query = "SELECT * FROM classes ";
+                                return mysqli_query($conn, $query);
+                            }
 
-                            // $orders = getAll("confirmed_orders");
+                            $classes = getAllClasses();
 
-                            // if ($orders) {
-                            //     if (mysqli_num_rows($orders) > 0) {
-                            //         while ($record = mysqli_fetch_assoc($orders)) {
+                            if ($classes) {
+                                if (mysqli_num_rows($classes) > 0) {
+                                    while ($record = mysqli_fetch_assoc($classes)) {
                             ?>
-                                        <tr>
-                                            <td><?= $record['confirmed_order_id'] ?></td>
-                                            <td><?= $record['name'] ?></td>
-                                            <td><?= $record['service_type'] ?></td>
-                                            <td><?= $record['admin_email'] ?></td>
-                                        </tr>
+                                        <td><?= $record['grade'] ?></td>
+                                        <td><?= $record['day'] ?></td>
+                                        <td><?= $record['time'] ?></td>
+                                        <td style="background-color: <?php echo ($record['class_status'] === 'Active') ? '#06c258' : (($record['class_status'] === 'Hold') ? '#FD7238' : 'inherit'); ?>">
+                                            <?= $record['class_status'] ?>
+                                        </td>
                             <?php
-                            //         }
-                            //     } else {
-                            //         echo "No records found";
-                            //     }
-                            // } else {
-                            //     echo "Error in retrieving records: " . mysqli_error($conn); // Display any potential errors
-                            // }
+                                    }
+                                } else {
+                                    echo "No records found";
+                                }
+                            } else {
+                                echo "Error in retrieving records: " . mysqli_error($conn); // Display any potential errors
+                            }
                             ?>
                         </tbody>
                     </table>
