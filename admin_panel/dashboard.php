@@ -47,20 +47,55 @@ if (!isset($_SESSION['admin_name'])) {
             </div>
 
             <ul class="box-info">
-                <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>11</h3>
-                        <p>Classes</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>9</h3>
-                        <p>Active Students</p>
-                    </span>
-                </li>
+
+                <?php
+
+                $classes = "SELECT COUNT(*) as count FROM classes";
+                $classes_result = mysqli_query($conn, $classes);
+
+                if ($classes_result->num_rows > 0) {
+                    $row = $classes_result->fetch_assoc();
+                    $count = $row['count'];
+                ?>
+
+                    <li>
+                        <i class='bx bxs-calendar-check'></i>
+                        <span class="text">
+                            <?php
+                            echo "<h3>$count</h3>"
+                            ?>
+                            <p>Classes</p>
+                        </span>
+                    </li>
+                <?php
+                } else {
+                    echo "<h3>0 results</h3>";
+                }
+                ?>
+
+                <?php
+
+                $classes = "SELECT COUNT(*) as count FROM login_and_register WHERE user_type = 'user' && account_status = 'Active' ";
+                $classes_result = mysqli_query($conn, $classes);
+
+                if ($classes_result->num_rows > 0) {
+                    $row = $classes_result->fetch_assoc();
+                    $count = $row['count'];
+                ?>
+                    <li>
+                        <i class='bx bxs-group'></i>
+                        <span class="text">
+                            <?php
+                            echo "<h3>$count</h3>"
+                            ?>
+                            <p>Active Students</p>
+                        </span>
+                    </li>
+                <?php
+                } else {
+                    echo "<h3>0 results</h3>";
+                }
+                ?>
             </ul>
 
 

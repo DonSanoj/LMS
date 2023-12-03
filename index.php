@@ -25,6 +25,16 @@
 
     <?php include('./includes/header.php'); ?>
 
+    <section class="index_1">
+        <div class="index_1_container">
+            <div class="index_1_content">
+                <h1>Learn Anywhere, Anytime</h1>
+                <p>Learn from the comfort of your home</p>
+                <a href="/login/login_form.php" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
     <?php include('./includes/footer.php'); ?>
 
 </body>
